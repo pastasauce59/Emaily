@@ -14,6 +14,14 @@ passport.use(new GoogleStrategy({
 })
 );
 
+// The GoogleStrategy has an internal identifier known as google. Passport knows
+// to take the string "google" and find the strategy connected to it.
+// SCOPE specifies to google servers what access we want to have access to in user's profile.
+app.get('/auth/google', passport.authenticate('google', {
+    scope: ['profile', 'email'] 
+})
+);
+
 // app.get('/', (req, res) => {
 //     res.send({ its: "ya boi" })
 // })
