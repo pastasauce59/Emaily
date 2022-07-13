@@ -22,6 +22,10 @@ app.get('/auth/google', passport.authenticate('google', {
 })
 );
 
+// When a user visits this route, inside the url is the code from google to authenticate.
+// Passport will see this with the GoogleStrategy to exchange the code for the user's profile.
+app.get('/auth/google/callback', passport.authenticate('google'))
+
 // app.get('/', (req, res) => {
 //     res.send({ its: "ya boi" })
 // })
