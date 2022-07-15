@@ -14,6 +14,17 @@ passport.use(new GoogleStrategy({
     // console.log('refresh token', refreshToken)
     // console.log('profile:', profile)
 
-    new User({ googleId: profile.id }).save()
+    User.findOne({googleId: profile.id})
+    .then(existingUser => {
+        if (existingUser) {
+            //if user already exists then do not save
+        } else {
+            //if no recorded user with the same Id, then save new record of user.
+            new User({ googleId: profile.id }).save()
+        }
+    })
+     
+    
+
 })
 );
