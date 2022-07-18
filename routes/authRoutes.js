@@ -1,3 +1,4 @@
+const req = require('express/lib/request');
 const passport = require('passport')
 
 module.exports = app => {
@@ -14,4 +15,7 @@ module.exports = app => {
     // Passport will see this with the GoogleStrategy to exchange the code for the user's profile.
     app.get('/auth/google/callback', passport.authenticate('google'))
 
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user)
+    })
 };
