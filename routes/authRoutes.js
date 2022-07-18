@@ -15,6 +15,14 @@ module.exports = app => {
     // Passport will see this with the GoogleStrategy to exchange the code for the user's profile.
     app.get('/auth/google/callback', passport.authenticate('google'))
 
+    app.get('/api/logout', (req, res) => {
+        // req.logout() is a function attached to req object by passport. This takes the cookie that contains
+        // the user id and destroys it. Cookie no longer exists.
+        req.logout()
+        // the response will then be undefined, or a blank page, to prove no user is logged in.
+        res.send(req.user)
+    })
+
     app.get('/api/current_user', (req, res) => {
         res.send(req.user)
     })
