@@ -1,0 +1,11 @@
+import React, { useState } from 'react'
+
+function Header() {
+    return (
+        <div>
+            Header Component
+        </div>
+    )
+};
+
+export default Header;
