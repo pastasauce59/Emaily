@@ -13,7 +13,14 @@ module.exports = app => {
     
     // When a user visits this route, inside the url is the code from google to authenticate.
     // Passport will see this with the GoogleStrategy to exchange the code for the user's profile.
-    app.get('/auth/google/callback', passport.authenticate('google'))
+    app.get(
+        '/auth/google/callback',
+        passport.authenticate('google'),
+        (req, res) => {
+            // res has a redirect function attached to it
+            res.redirect('/surveys')
+        }
+    )
 
     app.get('/api/logout', (req, res) => {
         // req.logout() is a function attached to req object by passport. This takes the cookie that contains
