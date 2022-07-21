@@ -1,5 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
+// import React, { Component } from 'react'
+import React, {useEffect} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+// * means import all actions created from actions folder and import them here
+import * as actions from '../actions'
 import Header from './Header'
 
 // dummy components
@@ -11,6 +16,16 @@ const Landing = () => <h2>Landing</h2>
 
 
 const App = () => {
+
+    const dispatch = useDispatch()
+
+
+    useEffect(() => {
+        dispatch(actions.fetchUser())
+    }, [])
+
+    
+
     return (
         <div className='container'>
             <Header />
@@ -27,6 +42,8 @@ const App = () => {
             </BrowserRouter>
         </div>
     );
+
 };
 
+// export default connect(null, actions)(App);
 export default App;
