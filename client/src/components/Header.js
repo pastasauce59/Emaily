@@ -1,6 +1,7 @@
 import { startSession } from 'mongoose';
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
 
 function Header(props) {
 
@@ -20,7 +21,7 @@ function Header(props) {
             default:
                 return (
                     <li>
-                        <a>Logout</a>
+                        <a href='/api/logout'>Logout</a>
                     </li>
                 );
         }
@@ -29,9 +30,12 @@ function Header(props) {
     return (
         <nav>
             <div className='nav-wrapper'>
-                <a className='left brand-logo'>
+                <Link 
+                to={ value.auth ? '/surveys' : '/'} 
+                className='left brand-logo'
+                >
                     Emaily
-                </a>
+                </Link>
                 <ul className='right'>
                     {renderContent()}
                     {/* <li>

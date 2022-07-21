@@ -27,7 +27,8 @@ module.exports = app => {
         // the user id and destroys it. Cookie no longer exists.
         req.logout()
         // the response will then be undefined, or a blank page, to prove no user is logged in.
-        res.send(req.user)
+        // res.send(req.user)
+        res.redirect('/')
     })
 
     app.get('/api/current_user', (req, res) => {
