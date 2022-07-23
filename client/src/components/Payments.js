@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import StripeCheckout from 'react-stripe-checkout'
+import { useSelector, useDispatch } from 'react-redux'
+import * as actions from '../actions'
 
 const Payments = () => {
 
-    debugger;
+    const dispatch = useDispatch()
 
     return (
         <div>
@@ -14,7 +16,7 @@ const Payments = () => {
                 // 'token' is expecting to receieve a callback function and that callback is called
                 // after successfully retreiving an authorize token from  Stripe which represents the charge.
                 // The token is not actually a token but an object representing the entire charge.
-                token={token => console.log(token)}
+                token={token => dispatch(actions.handleToken(token))}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
             />
         </div>
