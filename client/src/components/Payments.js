@@ -18,7 +18,13 @@ const Payments = () => {
                 // The token is not actually a token but an object representing the entire charge.
                 token={token => dispatch(actions.handleToken(token))}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
-            />
+            >
+            
+            <button className='btn'>
+                Add Credits
+            </button>
+
+            </StripeCheckout>
         </div>
     )
 }
