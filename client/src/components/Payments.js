@@ -8,6 +8,8 @@ const Payments = () => {
     return (
         <div>
             <StripeCheckout
+                name='Emaily'
+                description='$5 for 5 email credits'
                 amount={500}
                 // 'token' is expecting to receieve a callback function and that callback is called
                 // after successfully retreiving an authorize token from  Stripe which represents the charge.
