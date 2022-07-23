@@ -30,7 +30,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 require('./routes/authRoutes')(app);
-require('./routes/billingRoutes')
+require('./routes/billingRoutes')(app)
 
 // app.get('/', (req, res) => {
 //     res.send({ its: "ya boi" })
