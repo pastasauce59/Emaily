@@ -7,7 +7,7 @@ import Payments from './Payments';
 function Header(props) {
 
     const value = useSelector(state => state)
-    // console.log(value)
+    console.log(value)
 
     let renderContent = () => {
         switch (value.auth) {
@@ -23,6 +23,9 @@ function Header(props) {
                 return [
                     <li key='1'>
                         <Payments />
+                    </li>,
+                    <li key='3' style={{ margin: '0 10px' }}>
+                        Credits: {value.auth.credits}
                     </li>,
                     <li key='2'>
                         <a href='/api/logout'>Logout</a>
