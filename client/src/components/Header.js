@@ -7,7 +7,7 @@ import Payments from './Payments';
 function Header(props) {
 
     const value = useSelector(state => state)
-    console.log(value)
+    // console.log(value)
 
     let renderContent = () => {
         switch (value.auth) {
