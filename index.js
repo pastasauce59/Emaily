@@ -32,6 +32,7 @@ app.use(passport.session())
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app)
+require('./routes/surveyRoutes')(app)
 
 // app.get('/', (req, res) => {
 //     res.send({ its: "ya boi" })
