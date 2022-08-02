@@ -1,8 +1,12 @@
 // SurveyFormReview shows users their form inputs for review
-
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 const SurveyFormReview = ({ onCancel }) => {
+
+    const formValues = useSelector(state => state.form.surveyForm.values)
+    console.log(formValues)
+
     return (
         <div>
             <h5>Please confirm your entries</h5>
