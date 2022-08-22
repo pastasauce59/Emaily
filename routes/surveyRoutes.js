@@ -29,7 +29,19 @@ module.exports = app => {
             }
         })
 
-        console.log(events)
+        // console.log(events)
+
+        // compact() is another function fomr the lodash library
+        // it takes an array and removes any elements that are undefined
+        const compactEvents = _.compact(events)
+
+        // uniqBy is another function from lodash library, if there are any duplictes they are removed
+        const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId')
+
+        console.log(uniqueEvents)
+
+        // response to request to let sendgrid know everything is ok and stop sending duplicate responses
+        res.send({})
     })
 
     // request handler can take as many middlerwares as we want but have to be added
