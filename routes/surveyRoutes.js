@@ -11,6 +11,11 @@ module.exports = app => {
         res.send('Thanks for voting!')
     })
 
+    app.post('/api/surveys/webhooks', (req, res) => {
+        console.log(req.body)
+        res.send({})
+    })
+
     // request handler can take as many middlerwares as we want but have to be added
     // in the order we want them to execute! i.e. We want to check first
     // that the user is logged in, then check if they have enough credits.
