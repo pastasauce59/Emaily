@@ -1,3 +1,7 @@
+const _ = require('lodash')
+const { Path } = require('path-parser')
+// ULR is a default integrated module in the node.js system, helps parse URLS in app
+const { URL } = require('url')
 const mongoose = require('mongoose')
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
@@ -12,8 +16,20 @@ module.exports = app => {
     })
 
     app.post('/api/surveys/webhooks', (req, res) => {
-        console.log(req.body)
-        res.send({})
+        // console.log(req.body)
+        // res.send({})
+
+        const events = _.map(req.body, ({ email, url}) => {
+            const pathname = new URL(url).pathname
+            const p = new Path('/api/surveys/:surveyId/:choice')
+            // console.log(p.test(pathname))
+            const match = p.test(pathname)
+            if (match) {
+                return { email, surveyId: match.surveyId, choice: match.choice }
+            }
+        })
+
+        console.log(events)
     })
 
     // request handler can take as many middlerwares as we want but have to be added
