@@ -13,7 +13,7 @@ const SurveyList = () => {
     const surveys = useSelector(state => state.surveys)
 
     let renderSurveys = () => {
-        return surveys.map(survey => {
+        return surveys.reverse().map(survey => {
             return (
                 <div key={survey._id} className='card blue-grey darken-1'>
                     <div className='card-content white-text'>
