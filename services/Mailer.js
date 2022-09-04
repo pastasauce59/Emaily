@@ -1,5 +1,4 @@
 const sendgrid = require('sendgrid')
-// Hepler object that lets us create the mailer
 const helper = sendgrid.mail
 const keys = require('../config/keys')
 

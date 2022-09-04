@@ -1,5 +1,3 @@
-// SurveyForm shows a form for a user to add input
-
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { reduxForm, Field } from 'redux-form'
@@ -12,14 +10,7 @@ import formFields from './formFields';
 class SurveyForm extends Component{
 
     renderFields(){
-        // return (
-        //     <div>
-        //         <Field label='Survey Title' type='text' name='title' component={SurveyField} />
-        //         <Field label='Subject Line' type='text' name='subject' component={SurveyField} />
-        //         <Field label='Email Body' type='text' name='body' component={SurveyField} />
-        //         <Field label='Recipient List' type='text' name='emails' component={SurveyField} />
-        //     </div>
-        // )
+        
         return _.map(formFields, ({ label, name }) => {
             return <Field key={name} component={SurveyField} type='text' label={label} name={name} />
         })
@@ -29,10 +20,7 @@ class SurveyForm extends Component{
     render() { 
         return (
             <div>
-                Inside SurveyForm Component
-                {/* props.handleSubmit function is given automatically by reduxForm helper */}
                 <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
-                    {/* <Field type='text' name='surveyTitle' component='input' /> */}
                     {this.renderFields()}
                     <Link to='/surveys' className='red btn-flat white-text'>
                         Cancel
@@ -47,7 +35,6 @@ class SurveyForm extends Component{
     } 
 }
 
-// validation logic
 function validate(values) {
     const errors = {};
 
@@ -67,7 +54,6 @@ function validate(values) {
 }
 
 export default reduxForm({
-    // ES6 destructure of validate: validate,
     validate,
     form: 'surveyForm',
     destroyOnUnmount: false

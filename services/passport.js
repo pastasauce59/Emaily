@@ -21,18 +21,13 @@ passport.use(new GoogleStrategy({
     proxy: true
 }, 
 async (accessToken, refreshToken, profile, done) => {
-    // console.log('access token', accessToken);
-    // console.log('refresh token', refreshToken)
-    // console.log('profile:', profile)
 
     const existingUser = await User.findOne({googleId: profile.id})
     
     if (existingUser) {
-        //if user already exists then do not save
         return done(null, existingUser);
     }
 
-    //if no recorded user with the same Id, then save new record of user.
     const user = await new User({ googleId: profile.id }).save()
     done(null, user)
     

@@ -1,10 +1,7 @@
-// SurveyFormReview shows users their form inputs for review
 import _ from 'lodash'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import formFields from './formFields'
-// Cannot use withRouter with react-router-dom 6+
-// import { withRouter } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import * as actions from '../../actions'
 

@@ -7,7 +7,6 @@ import Payments from './Payments';
 function Header(props) {
 
     const value = useSelector(state => state)
-    // console.log(value)
 
     let renderContent = () => {
         switch (value.auth) {
@@ -45,9 +44,6 @@ function Header(props) {
                 </Link>
                 <ul className='right'>
                     {renderContent()}
-                    {/* <li>
-                        <a>Login With Google</a>
-                    </li> */}
                 </ul>
             </div>
         </nav>

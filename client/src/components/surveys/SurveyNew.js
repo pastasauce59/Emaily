@@ -1,5 +1,3 @@
-// SurveyNew shows: SurveyForm & SurveyFormReview
-
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { reduxForm, getFormValues } from 'redux-form'
@@ -8,7 +6,6 @@ import SurveyFormReview from './SurveyFormReview';
 
 let SurveyNew = () => {
 
-    // const formValues = useSelector(state => getFormValues('forname')(state))
     const [showFormReview, setShowFormReview] = useState(false)
 
     let renderContent = () => {
@@ -25,8 +22,6 @@ let SurveyNew = () => {
 
     return (
         <div>
-            {/* Inside SurveyNew Component
-            <SurveyForm /> */}
             {renderContent()}
         </div>
     )
