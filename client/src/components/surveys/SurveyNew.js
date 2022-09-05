@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { reduxForm, getFormValues } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 

@@ -15,7 +15,6 @@ module.exports = app => {
         const surveys = await Survey.find({ user: req.user.id })
             .select({ recipients: false });
 
-            console.log(surveys)
         res.send(surveys);
     });
 

@@ -37,8 +37,6 @@ const SurveyList = () => {
 
     return (
         <div>
-            inside SurveyList component
-
             {renderSurveys()}
         </div>
     )
